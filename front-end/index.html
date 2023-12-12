@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Residência Tech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/styles/main-style.css">
+</head>
+<style>
+
+</style>
+
+<body class="justify-content-center">
+
+    <header>
+        <nav class="header-content navbar container col-lg-6 col-12 justify-content-center">
+            <img src="https://oil.portodigital.org/wp-content/uploads/2022/06/Marca_Porto_Digital_negativa-1024x295.png"
+                class="navbar-brand w-25" alt="">
+        </nav>
+    </header>
+    <main class="main-content container col-lg-6 col-12">
+        <nav class="navbar  navbar-expand-lg bg-dark  w-100">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link text-light active" aria-current="page" data-tab-target="#grid-alunos"
+                                href="#" id="alunos">Editar
+                                alunos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" data-tab-target="#grid-mentores" href="#">Editar
+                                Mentores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" data-tab-target="#grid-empresas" href="#">Editar
+                                Empresas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" data-tab-target="#grid-squads" href="#">Editar
+                                Squads</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z">
+                            </path>
+                            <path fill-rule="evenodd"
+                                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z">
+                            </path>
+                        </svg>
+                        Sair
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content container w-100 h-100">
+            <div id="welcome" class="welcome fw-bolder w-100 h-100 d-flex justify-content-center align-items-center">
+
+                Seja bem-vindo ao painel de administrador
+                dos Discords da Residência Tech do
+                Porto Digital.
+            </div>
+
+            <div id="grid-alunos" data-tab-content
+                class="container-content w-100 h-100 d-flex justify-content-center align-items-center">
+                <div id="wrapper"></div>
+            </div>
+
+            <div id="grid-mentores" data-tab-content
+                class="container-content w-100 h-100 d-flex justify-content-center align-items-center">
+                <div id="wrapper-mentores"></div>
+            </div>
+            <div id="grid-empresas" data-tab-content
+                class="container-content w-100 h-100 d-flex justify-content-center align-items-center">
+                <div id="wrapper-empresas"></div>
+            </div>
+            <div id="grid-squads" data-tab-content
+                class="container-content w-100 h-100 d-flex justify-content-center align-items-center">
+                <div id="wrapper-squads"></div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-light fw-bold" id="exampleModalLabel">Adicionar Novo Aluno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addAlunoForm">
+                            <div class="mb-3">
+                                <label for="alunoEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="alunoEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="alunoSquadId" class="form-label">Numero do Squad</label>
+                                <input type="number" class="form-control" id="alunoSquadId" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="alunoNome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="alunoNome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="alunoSobrenome" class="form-label">Sobrenome</label>
+                                <input type="text" class="form-control" id="alunoSobrenome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="alunoCurso" class="form-label">Curso</label>
+                                <select class="form-select" id="alunoCurso" required>
+                                    <option value="">Selecione um curso</option>
+                                    <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                                    <option value="SI">Sistemas de Informação</option>
+                                    <option value="CC">Ciência da Computação</option>
+                                </select>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" form="addAlunoForm" class="btn btn-dark">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    <script src="/front-end/scripts/alunos.js"></script>
+    <script>
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('[data-tab-target]')
+            const tabContents = document.querySelectorAll('[data-tab-content]')
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    var welcome = document.getElementById("welcome");
+                    welcome.style.display = "none";
+                    welcome.classList.remove('d-flex')
+                    welcome.classList.remove('justify-content-center')
+                    welcome.classList.remove('align-items-center')
+                    welcome.classList.remove('fw-bolder')
+                    welcome.classList.remove('w-100')
+                    welcome.classList.remove('h-100')
+                    welcome.classList.remove('container-content')
+                    welcome.classList.remove('active-content')
+
+
+                    const target = document.querySelector(tab.dataset.tabTarget)
+                    tabContents.forEach(tabContent => {
+                        tabContent.classList.remove('active-content')
+                    })
+                    tabs.forEach(tab => {
+                        tab.classList.remove('active-content')
+                    })
+                    tab.classList.add('active-content')
+                    target.classList.add('active-content')
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>

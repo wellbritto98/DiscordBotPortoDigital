@@ -1,0 +1,52 @@
+body {
+    background: linear-gradient(to right, #17193b 0%, #17193b 60%, #292561 80%, #393487 100%);
+    box-sizing: border-box;
+}
+
+.main-content {
+    background-color: #fff;
+    height: 80vh;
+    border-radius: 30px 30px 16px 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main-content .navbar {
+    border-radius: 16px 16px 0px 0px;
+}
+
+
+.content {
+    flex-grow: 1;
+}
+
+/* Esconde todos os grids por padrão */
+.container-content {
+    display: none !important;
+}
+
+/* Classe para mostrar o conteúdo ativo */
+.active-content {
+    display: block !important;
+    /* 'important' para garantir que sobrescreva qualquer outra regra */
+}
+
+#btnRemoveAluno {
+    font-size: 10px;
+}
+
+.gridjs-td{
+    text-align: center;
+    padding: 6px 12px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        height: 100vh;
+    }
+
+}
